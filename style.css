@@ -1,0 +1,86 @@
+@import url("https://rsms.me/inter/inter-ui.css");
+/* line 2, style.scss */
+body {
+  font-family: 'Inter UI', sans-serif;
+  background-color: #222C36; }
+
+/* line 6, style.scss */
+a {
+  text-decoration: none; }
+
+/* line 9, style.scss */
+#search-form {
+  margin-top: 15em;
+  text-align: center; }
+
+/* line 13, style.scss */
+#search-bar {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid white;
+  width: 300px;
+  padding: 5px 0px 10px 0px;
+  min-width: 30%;
+  display: initial;
+  margin-left: 60px;
+  font-size: 1.5em;
+  outline: none;
+  color: #ececec;
+  margin: 0px; }
+
+/* line 27, style.scss */
+#searchbar:hover, #searchbar:active, #searchbar:focus {
+  box-shadow: 0px 5px 20px rgba(37, 37, 63, 0.3); }
+
+/* line 30, style.scss */
+#submit-button {
+  display: none; }
+
+/* line 31, style.scss */
+#link-section {
+  max-width: 900px;
+  padding-top: 100px;
+  margin: auto;
+  text-align: center; }
+
+/* line 39, style.scss */
+.link-box-wrapper {
+  display: inline-block;
+  margin: 10px;
+  height: 105px;
+  width: 120px;
+  padding: 10px;
+  border-radius: 15px; }
+
+/* line 47, style.scss */
+.link-box-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+/* line 50, style.scss */
+.link-box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px; }
+
+/* line 56, style.scss */
+.box-image-wrapper {
+  height: 50px;
+  width: 80px;
+  text-align: center;
+  margin: auto; }
+
+/* line 62, style.scss */
+.link-box img {
+  position: relative;
+  max-width: 80px;
+  max-height: 50px;
+  border-radius: 15px; }
+
+/* line 68, style.scss */
+.link-box .name {
+  position: relative;
+  font-size: 16px;
+  color: white;
+  width: 100%;
+  text-align: center; }
