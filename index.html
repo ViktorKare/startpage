@@ -21,6 +21,22 @@
                 v-bind:key="item.id">
             </link-item>
         </section>
+        <div onclick="ToggleAddModal()" id="open-modal"></div>
+        <div id="add-link-modal" class="modal-placeholder">
+            <div class="modal">
+                <div class="content">
+                    <h1>Add new link</h1>
+                    <label>Headline of shourtcut</label>
+                    <input name="inp-name" placeholder="Name...">
+                    <label>URL to image</label>
+                    <input name="inp-img" placeholder="Image url...">
+                    <label>Link to target</label>
+                    <input name="inp-url" placeholder="Link to taget...">
+                    <button>Add</button>
+                </div>
+
+            </div>
+        </div>
     </div>
 <script src="script.js"></script>
 </body>

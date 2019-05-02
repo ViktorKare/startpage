@@ -13,3 +13,9 @@ var app = new Vue({
       ]
     }
 })
+
+function ToggleAddModal(){
+  var modal = document.getElementById("add-link-modal");
+  modal.classList.toggle("show-flex");
+
+}

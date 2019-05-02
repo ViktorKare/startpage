@@ -45,7 +45,7 @@ a{
     border-radius: 15px;
 }
 .link-box-wrapper:hover{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(65, 73, 80, 0.25);
 }
 .link-box{
     display: block;
@@ -71,4 +71,74 @@ a{
     color: white;
     width: 100%;
     text-align: center;
+}
+#open-modal{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px 0px 0px 0px;
+    color: transparent;
+    transition: cubic-bezier(.04,.67,.42,.92) 0.25s;
+
+}
+#open-modal:hover{
+    color: white;
+    background-color: rgba(65, 73, 80, 0.25);
+}
+.modal-placeholder{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    animation: animateModal 1s cubic-bezier(.04,.67,.42,.92);
+    background-color: rgba(0, 0, 0, 0.1);
+    .modal{
+        h1{
+            color: white;
+        }
+        background-color:#414950 ;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+        height: 90%;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin: auto;
+        
+        .content{
+            position: relative;
+            label{
+                color: rgb(187, 187, 187);
+                
+            }
+            input{
+                display: block;
+                margin: 10px 0px 20px 0px;
+            }
+            button{
+                position: absolute;
+                right: 0px;
+                bottom: -30px;
+            }
+        }
+    }
+ 
+}
+@keyframes animateModal {
+    0% {top: -1000px; scale: 0.7; background-color: transparent;}
+    50% {top: 0px; scale: 1; background-color: transparent;}
+    100% {background-color: rgba(0, 0, 0, 0.1);}
+}
+.show-flex{
+    display: flex;
 }
