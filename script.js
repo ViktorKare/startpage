@@ -6,12 +6,43 @@ Vue.component('link-item', {
 var app = new Vue({
     el: '#app',
     data: {
-      shortcuts: [
-        { id: 0, name: 'Netflix', img: 'https://stickeroid.com/uploads/pic/0/thumb/stickeroid_5bf5461d4e179.png', target: 'https://www.netflix.com/' },
-        { id: 1, name: 'Youtube', img: 'https://cdn.freebiesupply.com/logos/large/2x/youtube-icon-logo-png-transparent.png', target: 'https://www.youtube.com/' },
-        { id: 2, name: 'Reddit', img: 'https://i.imgur.com/sdO8tAw.png', target: 'https://www.reddit.com/' }
-      ]
+      shortcuts:[],
+      newLinkName:null,
+      newLinkUrl:null
+      
+    },
+    mounted() {
+      if (localStorage.getItem('shortcuts')) {
+        try {
+          this.shortcuts = JSON.parse(localStorage.getItem('shortcuts'));
+        } catch(e) {
+          localStorage.removeItem('shortcuts');
+        }
+      }
+    },
+    methods: {
+      addNewLink(){
+        
+          this.shortcuts.push({
+            name: this.newLinkName,
+            target: this.newLinkUrl,
+            img: 'https://www.google.com/s2/favicons?domain=' + this.newLinkUrl
+          }),
+          this.newLinkName = '';
+          this.newLinkUrl = '';
+          
+          this.saveToLocal();
+          ToggleAddModal();
+          
+        
+   
+        
+      },
+      saveToLocal(){
+        localStorage.setItem('shortcuts', JSON.stringify(this.shortcuts));
+      }
     }
+    
 })
 
 function ToggleAddModal(){
