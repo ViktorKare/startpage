@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Startpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" type="image/x-icon" />
+</head>
+<body>
+    <div id="app">
+        <form id="search-form" action="https://www.google.com/search" method="get">
+            <input id="search-bar" type="text" autofocus placeholder="" name="q" alt="search">
+            <input id="submit-button" type="submit" value="Search">
+        </form>
+        <section id="link-section" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+         
+            <div class="link-box-wrapper" v-for="item in shortcuts" v-bind:link="item" v-bind:key="item.id">
+                <a :href="item.target">
+                    <div class="link-box">
+                        <div class="box-image-wrapper">
+                            <img :src="item.img">
+                        </div>
+                        <h3 class="name">{{ item.name }}</h3>
+                    </div>
+                </a>
+            </div>
+            
+            
+        </section>
+        <button class="button" onclick="ToggleAddModal()" id="open-modal"></button>
+        <div id="add-link-modal" class="modal-placeholder">
+            <div class="close-modal-placeholder" onclick="ToggleAddModal()"></div>
+            <div class="modal">
+            <button id="modal-content-btn-1" onclick="addModalContent()" class="button2 active">Add new shortcuts</button>
+            <button id="modal-content-btn-2" onclick="listModalContent()" class="button2">View existing shortcuts</button>
+                <form id="modal-content-1" v-on:submit.prevent="addNewLink" class="content show">
+                    <div class="group">
+                        <input v-model="newLinkName" type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                        <label>Label</label>
+                    </div>
+                    <div class="group">
+                        <input v-model="newLinkUrl" type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                        <label>Web address</label>
+                    </div>
+                    <button class="button" type="submit">Add</button>
+                </form>
+                <div id="modal-content-2" class="content">
+                    <ul>
+                        <li v-for="(item,n) in shortcuts" v-bind:link="item" v-bind:key="item.id">
+                            <img :src="item.img">
+                            <input type="text" v-model="item.name">
+                            <input type="text" v-model="item.target">
+                            <button @click="removeLink(n)">x</button>
+                        </li>
+                        <!--
+                        <link-lister
+                            v-for="(item,n) in shortcuts"
+                            v-bind:link="item"
+                            v-bind:key="item.id">
+                        </link-lister> -->
+                    </ul>
+                    <button @click="saveToLocal" class="button">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

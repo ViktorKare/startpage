@@ -24,18 +24,9 @@ body{
 a{
     text-decoration: none;
 }
-button {
-    -webkit-appearance: none;
-    background: -webkit-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
-    background: linear-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
-    background-size: 500%;
-    border: none;
-    border-radius: 5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    color: #fff;
+button{
     cursor: pointer;
     font-size: 1em;
-    font-weight: bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 3rem;
@@ -46,10 +37,22 @@ button {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 100%;
+    padding: 0 1.5em;
+    border: none;
+    -webkit-appearance: none;
+}
+.button {
+    
+    background: -webkit-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
+    background: linear-gradient(to right, #a2ccb6 0%, #fceeb5 50%, #ee786e 100%);
+    background-size: 500%;
+    border-radius: 5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: #fff;
+    font-weight: bold;
   }
   
-button:hover {
+.button:hover {
 animation-name: gradient;
 -webkit-animation-name: gradient;
 animation-duration: 2s;
@@ -58,6 +61,18 @@ animation-iteration-count: 1;
 -webkit-animation-iteration-count: 1;
 animation-fill-mode: forwards;
 -webkit-animation-fill-mode: forwards;
+}
+
+.button2{
+    background-color: transparent;
+    color: #c2c2c2;
+    text-align: center;
+    font-weight: bold;
+}
+.button2.active{
+    border-top: solid $colorgreen 2px;
+    
+
 }
 
 @keyframes gradient {
@@ -158,7 +173,7 @@ animation-fill-mode: forwards;
     left: 0px;
     overflow: hidden;
     animation: animateModal .75s cubic-bezier(.04,.67,.42,.92);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, .1);
     .close-modal-placeholder{
         position: absolute;
         width: 100%;
@@ -174,15 +189,19 @@ animation-fill-mode: forwards;
         border-radius: 8px;
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
         width: 90%;
-        max-width: 600px;
+        max-width: 700px;
         overflow-y: hidden;
         overflow-x: hidden;
         margin: auto;
-        
+        padding: 0 40px 40px 40px;
+        text-align: center;
+        position: relative;
+        max-height: 100vh;
         .content{
-            margin: 40px;
             position: relative;
-
+            display: none;
+            max-height: calc(100vh - 50px);
+            overflow-y: auto;
             
             .group {
                 position: relative;
@@ -192,7 +211,9 @@ animation-fill-mode: forwards;
             textarea {
                 resize: none;
             }
-            
+            button{
+                width: 100%;
+            }
             input,
             textarea {
                 background: none;
@@ -228,7 +249,37 @@ animation-fill-mode: forwards;
                 top: 10px;
                 transition: $trans-time ease all;
             }
+            ul{
+                list-style: none;
+                padding: 0;
+                li{
+                    padding: 10px 0px;
+                    text-align: left;
+                }
+                img{
+                    padding: 13px;
+                    display: inline;
+                    vertical-align: middle;
+                }
+                input, button{
+                    display: inline-block;
+                    width: auto;
+                }
+                button{
+                    height: 41px;
+                    width: 41px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    float: right;
+                }
+                input:not(:first-child), button:not(:first-child){
+                    margin-left: 5px;
+                }
+            }
             
+        }
+        .show{
+            display: block;
         }
     }
  
